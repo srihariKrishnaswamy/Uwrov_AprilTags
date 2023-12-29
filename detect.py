@@ -3,6 +3,10 @@ import numpy as np
 import time
 from apriltag import Detector
 
+# this file does not do anything at the moment, to make the magic happen run the apriltag_video_custom.py
+
+
+
 def detect_apriltags(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     detector = Detector()
