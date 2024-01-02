@@ -427,7 +427,7 @@ class Detector(object):
         M = _matd_get_array(Mptr).copy()
         self.libc.matd_destroy(H)
         self.libc.matd_destroy(Mptr)
-
+        # print("pose matrix", M)
         return M, init_error.value, final_error.value
 
     def _vis_detections(self, shape, detections):
@@ -633,7 +633,7 @@ def detect_tags(image,
 
     result = []
     numpy.set_printoptions(suppress=True, formatter={'float_kind':'{:0.4f}'.format})
-
+    pose = None
     for i, detection in enumerate(detections):
 
         if verbose==2 or verbose==3:
@@ -664,6 +664,6 @@ def detect_tags(image,
 
         result.extend([detection, pose, e0, e1])
 
-    return result, overlay
+    return result, overlay, pose
 
 ######################################################################
